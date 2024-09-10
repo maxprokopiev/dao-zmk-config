@@ -106,10 +106,10 @@
 
         tmux {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans       &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DOUBLE_QUOTES  &trans  &kp PERCENT  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans       &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans             &trans
+&trans  &trans  &trans  &trans   &trans  &trans  &trans  &trans               &trans   &trans         &trans  &trans
+&trans  &trans  &trans  &trans   &trans  &trans  &trans  &tmux DOUBLE_QUOTES  &tmux Z  &tmux PERCENT  &trans  &trans
+&trans  &trans  &trans  &tmux C  &trans  &trans  &trans  &tmux P              &tmux N  &trans         &trans  &trans
+                        &trans   &trans  &trans  &trans  &trans               &trans
             >;
         };
     };
