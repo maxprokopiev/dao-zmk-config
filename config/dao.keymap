@@ -29,15 +29,33 @@
 };
 
 / {
+    macros {
+        tmux: tmux {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_CONTROL>,
+                <&macro_tap>,
+                <&kp B>,
+                <&macro_release>,
+                <&kp LEFT_CONTROL &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>;
+
+            label = "TMUX";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp TAB        &kp Q    &kp W  &kp E         &kp R        &kp T       &kp Y          &kp U      &kp I            &kp O    &kp P       &kp BACKSPACE
-&kp LCTRL      &lt 3 A  &kp S  &kp D         &lt 2 F      &kp G       &kp H          &kp J      &kp K            &kp L    &lt 4 SEMI  &kp ENTER
-&kp LG(LS(H))  &kp Z    &kp X  &mt RG(C) C   &mt RG(V) V  &kp B       &kp N          &kp M      &kp COMMA        &kp DOT  &kp FSLH    &kp RS(RG(L))
-                               &kp LEFT_ALT  &kp SPACE    &kp ESCAPE  &kp RIGHT_GUI  &kp RSHFT  &lt 1 RA(SPACE)
+&kp TAB        &kp Q    &kp W  &kp E        &kp R        &kp T         &kp Y          &kp U      &kp I            &kp O    &kp P       &kp BACKSPACE
+&kp LCTRL      &lt 3 A  &kp S  &kp D        &lt 2 F      &kp G         &kp H          &kp J      &kp K            &kp L    &lt 4 SEMI  &kp ENTER
+&kp LG(LS(H))  &lt 6 Z  &kp X  &mt RG(C) C  &mt RG(V) V  &kp B         &kp N          &kp M      &kp COMMA        &kp DOT  &kp FSLH    &kp RS(RG(L))
+                               &kp ESCAPE   &kp SPACE    &kp LEFT_ALT  &kp RIGHT_GUI  &kp RSHFT  &lt 1 RA(SPACE)
             >;
         };
 
@@ -61,7 +79,7 @@
 
         numpad {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &kp PLUS      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK   &trans
+&trans  &trans  &trans  &trans  &trans  &tog 5  &kp PLUS      &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK   &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &kp NUMBER_0  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp DOT        &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &kp EQUAL     &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BACKSLASH  &trans
                         &trans  &trans  &trans  &trans        &trans        &trans
@@ -74,6 +92,24 @@
 &trans  &kp NUMBER_0     &kp PIPE   &kp UNDERSCORE  &kp MINUS          &kp DOLLAR     &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans  &trans  &trans
 &trans  &kp GRAVE        &kp TILDE  &kp CARET       &kp SINGLE_QUOTE   &kp PERCENT    &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans  &trans  &trans
                                     &trans          &trans             &trans         &trans  &trans                &trans
+            >;
+        };
+
+        reset {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans
+&trans  &kp A   &trans  &trans  &kp F   &trans  &trans  &trans  &trans  &trans  &kp SEMICOLON  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        tmux {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans       &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DOUBLE_QUOTES  &trans  &kp PERCENT  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans             &trans  &trans       &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans             &trans
             >;
         };
     };
